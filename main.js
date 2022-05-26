@@ -1,18 +1,18 @@
 //                                              OKTEN-HCAW-4-JS
 //======================================================================================================================
 //                                                Class Work
-//                                              OKTEN-CW-3-JS
+//                                              OKTEN-CW-4-JS
 //======================================================================================================================
 // - створити класс для об'єктів Client з полями id, name, surname , email, phone, order (поле order є масивом зі списком товарів)
 class Client {
     constructor(id, name, surname, email, phone, order) {
-        this.id = id,
-            this.name = name,
-            this.surname = surname ,
-            this.email = email,
-            this.phone = phone,
-            this.order = order
-    };
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+        this.phone = phone;
+        this.order = order;
+    }
 };
 
 let client1 = new Client(3, 'Alex', 'Kazimir', 'kav29041984@gmail.com', 380672222, ['milk', 'bread', 'butter']);
@@ -281,28 +281,122 @@ console.log('Ця попелюшка повинна бути з принцом: 
 
 //======================================================================================================================
 //                                                Home Work
-//                                              OKTEN-HW-3-JS
+//                                              OKTEN-HW-4-JS
 //======================================================================================================================
 // - створити функцію, яка генерує масив рандомних числових цілих значень в діапазоні від 0 до 100.
+let arndomNumArr = [];
+function randomNumb() {
+    for (let i = 0; i < 100; i++) {
+        let num = Math.floor(Math.random()*100);
+        arndomNumArr.push(num);
+    };
+};
+randomNumb();
+console.log('Arr', arndomNumArr);
 
 // - Змінти попередню функцію, щоб діапазон можна було визначити через аргументи.
-//
+let arndomNumArr2 = [];
+function randomNumb2(range) {
+    for (let i = 0; i < range; i++) {
+        let num = Math.floor(Math.random()*100);
+        arndomNumArr2.push(num);
+    };
+};
+randomNumb2(10);
+console.log('Arr2', arndomNumArr2);
+
 // - створити (або згенерувати, за допомоги попередньої функції) масив рандомних цілих числових значень.
 //   Відсортувати його за допомоги sort
+let arndomNumArr3 = [];
+function randomNumb3(range) {
+    for (let i = 0; i < range; i++) {
+        let num = Math.floor(Math.random()*100);
+        arndomNumArr3.push(num);
+    };
+};
+randomNumb3(100);
+arndomNumArr3.sort((a,b) => {
+    return a-b;
+})
+console.log('Arr3', arndomNumArr3);
 
 // - створити (або згенерувати, за допомоги попередньої функції) масив рандомних цілих числових значень.
 //   відфільтрувати  його за допомоги filter, за лишивши тільки парні числа
+let arndomNumArr4 = [];
+function randomNumb4(range) {
+    for (let i = 0; i < range; i++) {
+        let num = Math.floor(Math.random()*100);
+        arndomNumArr4.push(num);
+    };
+};
+randomNumb4(100);
+let par = arndomNumArr4.filter(function (value) {
+    if (value%2 === 0) {
+        return value;
+    };
+});
+console.log('Arr4', par);
 
 // - створити масив рандомних цілих числових значень (або згенерувати, за допомоги попередньої функції) .
 //   за допомоги map та колбеку перетворити всі об'єкти в масиві на стрінгові.
-//
+let arndomNumArr5 = [];
+function randomNumb5(range) {
+    for (let i = 0; i < range; i++) {
+        let num = Math.floor(Math.random()*100);
+        arndomNumArr5.push(num);
+    };
+};
+randomNumb5(100);
+let mappedToString = arndomNumArr5.map((value) => {
+    return value.toString();
+})
+console.log('Arr5', mappedToString);
+
 // - Створити функцію конструктор для об'єктів User з полями id, name, surname , email, phone
+function User(id, name, surname , email, phone) {
+    this.id = id;
+    this.name = name;
+    this.surname = surname;
+    this.email = email;
+    this.phone = phone;
+}
+let user1 = new User(1, 'Alex', 'Kazymyr', 'kav2008@ukkr.net', '+380667844399');
+let user2 = new User(2, 'Nik', 'Kazymyr', 'kav2008@ukkr.net', '+380667844399');
+let user3 = new User(3, 'Katy', 'Kazymyr', 'kav2008@ukkr.net', '+380667844399');
+let user4 = new User(4, 'Ira', 'Kazymyr', 'kav2008@ukkr.net', '+380667844399');
+let user5 = new User(5, 'Alex', 'Kazymyr', 'kav2008@ukkr.net', '+380667844399');
+let user6 = new User(6, 'Alex', 'Kazymyr', 'kav2008@ukkr.net', '+380667844399');
+let user7 = new User(7, 'Alex', 'Kazymyr', 'kav2008@ukkr.net', '+380667844399');
+let user8 = new User(8, 'Alex', 'Kazymyr', 'kav2008@ukkr.net', '+380667844399');
+let user9 = new User(9, 'Alex', 'Kazymyr', 'kav2008@ukkr.net', '+380667844399');
+let user10 = new User(10, 'Alex', 'Kazymyr', 'kav2008@ukkr.net', '+380667844399');
+
 // створити пустий масив, наповнити його 10 об'єктами new User(....)
+let users = [
+    user1,
+    user2,
+    user3,
+    user4,
+    user5,
+    user6,
+    user7,
+    user8,
+    user9,
+    user10,
+]
+console.log('Users Array ', users);
+
 // Взяти масив цей  User[] та: Відфільтрувати , залишивши тільки об'єкти з парними id (filter) та Відсортувати його по id. по зростанню (sort)
+let filterIdPar = users.filter(value => {
+    if (value.id%2 === 0) {
+        return value;
+    };
+});
+console.log('Filterd ID ', filterIdPar);
 
 //======================================================================================================================
 //                                              Additional Work
-//                                              OKTEN-AW-3-JS
+//                                              OKTEN-AW-4-JS
 //======================================================================================================================
 // - Створити клас або функцію конструктор, за допомоги якої можна створювати об'єкти наступного вигляду.
 // Конструктор повинен приймати значення для кожної властивості, в т.ч і для властивостей внутрішніх об'єктів
